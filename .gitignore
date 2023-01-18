@@ -1,0 +1,20 @@
+# Ignore all files
+/*
+
+# Keep working files
+!/packages
+/packages/*
+!/packages/core
+/packages/core/*
+!/packages/core/src
+/packages/core/src/*
+!/packages/core/src/components
+!/packages/core/src/mappings
+/packages/core/src/components/*
+/packages/core/src/mappings/*
+!/packages/core/src/components/StarRating.tsx
+!/packages/core/src/mappings/StarRating.ts
+
+# Keep Readme and gitignore
+!/README.md
+!/.gitignore
