@@ -6,6 +6,7 @@
 /packages/*
 !/packages/core
 /packages/core/*
+!/packages/core/package.json
 !/packages/core/src
 /packages/core/src/*
 !/packages/core/src/components
