@@ -11,10 +11,9 @@ export interface DeckSwiperProps {
   horizontalEnabled?: boolean;
   visibleCardCount?: number;
   style?: StyleProp<ViewStyle>;
-  children: React.ReactNode;
 }
 
-const DeckSwiper = ({
+const DeckSwiper: React.FC<React.PropsWithChildren<DeckSwiperProps>> = ({
   onIndexChanged,
   onEndReached,
   startCardIndex = 0,
@@ -24,7 +23,7 @@ const DeckSwiper = ({
   visibleCardCount = 1,
   style,
   children,
-}: DeckSwiperProps) => {
+}) => {
   const childrenArray = React.useMemo(
     () => React.Children.toArray(children),
     [children]

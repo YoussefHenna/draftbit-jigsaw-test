@@ -9,7 +9,11 @@ export interface DeckSwiperCardProps {
   theme: Theme;
 }
 
-const DeckSwiperCard = ({ style, children, theme }: DeckSwiperCardProps) => (
+const DeckSwiperCard: React.FC<DeckSwiperCardProps> = ({
+  style,
+  children,
+  theme,
+}) => (
   <View
     style={[
       styles.card,
