@@ -40,6 +40,11 @@ export const SEED_DATA = {
     isEditable: createStaticBoolProp({
       label: "Editable",
     }),
+    roundToInteger: createStaticBoolProp({
+      label: "Round to Integer",
+      description:
+        "Whether the rating should be rounded to the nearest integer or not",
+    }),
     activeColor: createColorProp({
       label: "Active Color",
       defaultValue: "primary",
