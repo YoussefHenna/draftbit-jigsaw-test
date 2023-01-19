@@ -39,7 +39,7 @@ const DeckSwiper: React.FC<React.PropsWithChildren<DeckSwiperProps>> = ({
     <DeckSwiperComponent
       cards={cardsFillerData}
       renderCard={(_, i) => <>{childrenArray[i]}</>}
-      keyExtractor={(card) => card.toString()}
+      keyExtractor={(card) => card?.toString()}
       containerStyle={
         StyleSheet.flatten([styles.cardsContainer, style]) as object | undefined
       }
