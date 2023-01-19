@@ -52,6 +52,7 @@ const DeckSwiper: React.FC<React.PropsWithChildren<DeckSwiperProps>> = ({
       horizontalSwipe={horizontalEnabled}
       showSecondCard={visibleCardCount > 1}
       stackSize={visibleCardCount}
+      backgroundColor="transparent"
     />
   );
 };
