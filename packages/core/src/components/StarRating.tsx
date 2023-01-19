@@ -15,6 +15,7 @@ type Props = {
   maxStars?: number;
   rating?: number;
   defaultValue?: number;
+  roundToInteger?: boolean;
   isEditable?: boolean;
   activeColor?: string;
   inactiveColor?: string;
@@ -29,6 +30,7 @@ const StarRating: React.FC<React.PropsWithChildren<Props>> = ({
   maxStars = 5,
   rating = 0,
   defaultValue,
+  roundToInteger = false,
   isEditable = false,
   activeColor,
   inactiveColor,
@@ -60,12 +62,14 @@ const StarRating: React.FC<React.PropsWithChildren<Props>> = ({
     [onPress]
   );
 
-  const ratingRounded = Math.round(localRating * 2) / 2;
+  const ratingRounded = roundToInteger
+    ? Math.round(localRating)
+    : Math.round(localRating * 2) / 2;
 
   return (
     <View style={[styles.container, style]} {...rest}>
       {[...Array(maxStars)].map((_, i) => (
-        <View key={i} style={{ display: "flex" }}>
+        <View key={i} style={styles.starContainer}>
           <Icon
             name={
               ratingRounded - i === 0.5
@@ -77,10 +81,12 @@ const StarRating: React.FC<React.PropsWithChildren<Props>> = ({
           />
           {isEditable && (
             <View style={styles.touchContainer}>
-              <Pressable
-                style={styles.pressable}
-                onPress={() => ratingHandler(i + 0.5)}
-              />
+              {!roundToInteger && (
+                <Pressable
+                  style={styles.pressable}
+                  onPress={() => ratingHandler(i + 0.5)}
+                />
+              )}
               <Pressable
                 style={styles.pressable}
                 onPress={() => ratingHandler(i + 1)}
@@ -98,6 +104,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
   },
+  starContainer: {
+    display: "flex",
+  },
   touchContainer: {
     display: "flex",
     flexDirection: "row",
@@ -111,7 +120,6 @@ const styles = StyleSheet.create({
   pressable: {
     flex: 1,
     height: "100%",
-    width: "50%",
   },
 });
 
