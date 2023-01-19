@@ -4,15 +4,24 @@
 # Keep working files
 !/packages
 /packages/*
+
+!/packages/ui
+/packages/ui/*
+!/packages/ui/src
+/packages/ui/src/*
+!/packages/ui/src/index.tsx
+
 !/packages/core
 /packages/core/*
 !/packages/core/package.json
 !/packages/core/src
 /packages/core/src/*
+!/packages/core/src/index.tsx
 !/packages/core/src/components
 !/packages/core/src/mappings
 /packages/core/src/components/*
 /packages/core/src/mappings/*
+!/packages/core/src/components/DeckSwiper
 !/packages/core/src/components/StarRating.tsx
 !/packages/core/src/mappings/StarRating.ts
 
