@@ -14,7 +14,7 @@ The files of note regarding the task are:
 
 ## StarRating
 
-[Snack URL]()
+[Snack URL](https://snack.expo.dev/@youssefhenna/starrating-example)
 
 ### Adding the Rounding Prop
 
@@ -39,7 +39,7 @@ This was acheived by changing from percentage widths to both having equal flex i
 
 ## DeckSwiper
 
-[Snack URL]()
+[Snack URL](https://snack.expo.dev/@youssefhenna/deckswiper)
 
 This was a direct mapping to allow [react-native-deck-swiper](https://github.com/webraptor/react-native-deck-swiper#readme) to be used in Draftbit, so the focus was to wrap the component in a Draftbit friendly component.
 
