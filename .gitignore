@@ -24,6 +24,9 @@
 !/packages/core/src/components/DeckSwiper
 !/packages/core/src/components/StarRating.tsx
 !/packages/core/src/mappings/StarRating.ts
+!/packages/core/src/mappings/DeckSwiper.ts
+!/packages/core/src/mappings/DeckSwiperCard.ts
+
 
 # Keep Readme and gitignore
 !/README.md
