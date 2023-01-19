@@ -5,8 +5,8 @@ import type { Theme } from "../../styles/DefaultTheme";
 import { withTheme } from "../../theming";
 
 export interface DeckSwiperProps {
-  onSwiped?: (cardIndex: number) => void;
-  onSwipedAll?: () => void;
+  onIndexChanged?: (index: number) => void;
+  onEndReached?: () => void;
   startCardIndex?: number;
   infiniteSwiping?: boolean;
   verticalEnabled?: boolean;
@@ -19,8 +19,8 @@ export interface DeckSwiperProps {
 }
 
 const DeckSwiper = ({
-  onSwiped,
-  onSwipedAll,
+  onIndexChanged,
+  onEndReached,
   startCardIndex = 0,
   infiniteSwiping = false,
   verticalEnabled = true,
@@ -61,8 +61,8 @@ const DeckSwiper = ({
           cardStyle,
         ]) as object | undefined
       }
-      onSwiped={onSwiped}
-      onSwipedAll={onSwipedAll}
+      onSwiped={onIndexChanged}
+      onSwipedAll={onEndReached}
       cardIndex={startCardIndex}
       infinite={infiniteSwiping}
       verticalSwipe={verticalEnabled}
