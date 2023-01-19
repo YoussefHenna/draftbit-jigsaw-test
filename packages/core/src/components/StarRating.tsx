@@ -32,8 +32,9 @@ const StarRating: React.FC<React.PropsWithChildren<Props>> = ({
   defaultValue,
   roundToInteger = false,
   isEditable = false,
-  activeColor,
-  inactiveColor,
+  theme,
+  activeColor = theme.colors.primary,
+  inactiveColor = theme.colors.disabled,
   style,
   onPress,
   ...rest
