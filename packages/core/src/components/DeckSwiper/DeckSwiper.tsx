@@ -1,8 +1,6 @@
 import React from "react";
 import { StyleProp, ViewStyle, StyleSheet } from "react-native";
 import DeckSwiperComponent from "react-native-deck-swiper";
-import type { Theme } from "../../styles/DefaultTheme";
-import { withTheme } from "../../theming";
 
 export interface DeckSwiperProps {
   onIndexChanged?: (index: number) => void;
@@ -13,9 +11,7 @@ export interface DeckSwiperProps {
   horizontalEnabled?: boolean;
   visibleCardCount?: number;
   style?: StyleProp<ViewStyle>;
-  cardStyle?: StyleProp<ViewStyle>;
   children: React.ReactNode;
-  theme: Theme;
 }
 
 const DeckSwiper = ({
@@ -27,9 +23,7 @@ const DeckSwiper = ({
   horizontalEnabled = true,
   visibleCardCount = 1,
   style,
-  cardStyle,
   children,
-  theme,
 }: DeckSwiperProps) => {
   const childrenArray = React.useMemo(
     () => React.Children.toArray(children),
@@ -50,17 +44,7 @@ const DeckSwiper = ({
       containerStyle={
         StyleSheet.flatten([styles.cardsContainer, style]) as object | undefined
       }
-      cardStyle={
-        StyleSheet.flatten([
-          styles.card,
-          {
-            backgroundColor: theme.colors.background,
-            borderRadius: theme.borderRadius.global,
-            borderColor: theme.colors.divider,
-          },
-          cardStyle,
-        ]) as object | undefined
-      }
+      cardStyle={styles.card as object | undefined}
       onSwiped={onIndexChanged}
       onSwipedAll={onEndReached}
       cardIndex={startCardIndex}
@@ -78,13 +62,11 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   card: {
-    padding: 20,
     left: 0,
     right: 0,
     width: "auto",
     height: "auto",
-    borderWidth: 2,
   },
 });
 
-export default withTheme(DeckSwiper);
+export default DeckSwiper;

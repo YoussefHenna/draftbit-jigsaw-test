@@ -1,24 +1,38 @@
 import React from "react";
 import { View, StyleSheet, StyleProp, ViewStyle } from "react-native";
+import type { Theme } from "../../styles/DefaultTheme";
+import { withTheme } from "../../theming";
 
 export interface DeckSwiperCardProps {
-  cardContentStyle?: StyleProp<ViewStyle>;
+  style?: StyleProp<ViewStyle>;
   children: React.ReactNode;
+  theme: Theme;
 }
 
-const DeckSwiperCard = ({
-  cardContentStyle,
-  children,
-}: DeckSwiperCardProps) => (
-  <View style={[styles.wrapper, cardContentStyle]}>{children}</View>
+const DeckSwiperCard = ({ style, children, theme }: DeckSwiperCardProps) => (
+  <View
+    style={[
+      styles.card,
+      {
+        backgroundColor: theme.colors.background,
+        borderRadius: theme.borderRadius.global,
+        borderColor: theme.colors.divider,
+      },
+      style,
+    ]}
+  >
+    {children}
+  </View>
 );
 
 const styles = StyleSheet.create({
-  wrapper: {
+  card: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    padding: 20,
+    borderWidth: 2,
   },
 });
 
-export default DeckSwiperCard;
+export default withTheme(DeckSwiperCard);
